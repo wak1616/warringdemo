@@ -1,0 +1,10 @@
+name: warring_data
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pandas
+  - numpy
+  - matplotlib
+  - jupyter
+  - ipykernel
