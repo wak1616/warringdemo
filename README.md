@@ -1,6 +1,6 @@
 # WarringDemo
 
-A demo repository for warring functionality.
+A demo repository for arcuate incision calculator functionality.
 
 ## Getting Started
 
