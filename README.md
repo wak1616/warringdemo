@@ -76,13 +76,10 @@ warringdemo/
 
 ## Key Concepts
 
-- **Barrett Integrated-K**: A calculation method for predicting corneal astigmatism
+- **Barrett Integrated-K**: A calculation method for predicting corneal astigmatism, based on a vector median 2-3 device measurements, which yields a final astigmatism magnitude and axis.
 - **Double-angle formula**: Used to convert astigmatism measurements between different axes
 - **WTR/ATR/Oblique**: With-the-rule (0°/180°), Against-the-rule (90°), and Oblique (45°/135°) astigmatism classifications
 
-## Contributing
-
-Feel free to contribute to this project by submitting issues or pull requests.
 
 ## License
 

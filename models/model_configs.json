@@ -1,0 +1,60 @@
+{
+  "model1": {
+    "feature_columns": [
+      "Age",
+      "Laterality",
+      "Barrett Integrated-K magnitude (D)",
+      "BIK_axis_cos",
+      "BIK_axis_sin",
+      "deltaTK_IOL700_cyl_atBIKaxis",
+      "Manifest_cyl_at_BIKaxis"
+    ],
+    "target_classes": [
+      0,
+      1,
+      2
+    ],
+    "class_mapping": {
+      "0": 0,
+      "1": 1,
+      "2": 2
+    },
+    "optimal_rounds": 45,
+    "description": "Classification: None (0) / Single (1) / Paired (2) arcuates"
+  },
+  "model2": {
+    "feature_columns": [
+      "Age",
+      "Barrett Integrated-K magnitude (D)",
+      "BIK_axis_cos",
+      "BIK_axis_sin",
+      "deltaK_IOL700_cyl_atBIKaxis",
+      "deltaTK_IOL700_cyl_atBIKaxis",
+      "PostAstig_IOL700_cyl_atBIKaxis",
+      "Pentacam_cyl_atBIKaxis",
+      "Axial length (mm)"
+    ],
+    "optimal_rounds": 180,
+    "monotonic_features": [
+      "Barrett Integrated-K magnitude (D)"
+    ],
+    "description": "Regression: LRI length for SINGLE arcuate cases"
+  },
+  "model3": {
+    "feature_columns": [
+      "Age",
+      "Barrett Integrated-K magnitude (D)",
+      "BIK_axis_cos",
+      "deltaK_IOL700_cyl_atBIKaxis",
+      "deltaTK_IOL700_cyl_atBIKaxis",
+      "PostAstig_IOL700_cyl_atBIKaxis",
+      "Pentacam_cyl_atBIKaxis",
+      "Axial length (mm)"
+    ],
+    "optimal_rounds": 305,
+    "monotonic_features": [
+      "Barrett Integrated-K magnitude (D)"
+    ],
+    "description": "Regression: LRI length for PAIRED arcuate cases"
+  }
+}
