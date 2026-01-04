@@ -11,4 +11,4 @@ services:
     healthCheckPath: /health_warring
     envVars:
       - key: PYTHON_VERSION
-        value: "3.11"
+        value: "3.11.4"
