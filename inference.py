@@ -285,6 +285,48 @@ class LRIPredictor:
         # Preprocess patient data
         features = self.preprocess_patient(patient_data)
         
+        # Threshold rules based on astigmatism type and magnitude
+        # BIK_axis_cos: +1 = WTR (0°/180°), -1 = ATR (90°), 0 = oblique
+        bik_axis_cos = features['BIK_axis_cos']
+        barrett_k_mag = patient_data['barrett_k_magnitude']
+        
+        # Apply threshold rules before model prediction
+        # In positive cylinder notation: axis 0°/180° = ATR, axis 90° = WTR
+        # cos(2*axis): +1 at 0°/180° (ATR), -1 at 90° (WTR)
+        if bik_axis_cos > 0.5:
+            # ATR astigmatism (axis near 0°/180°): None if Barrett K < 0.1
+            if barrett_k_mag < 0.1:
+                return LRIPrediction(
+                    arcuate_type="None",
+                    arcuate_code=0,
+                    lri_length=None,
+                    lri_axis=None,
+                    num_arcuates=0,
+                    recommendation="No arcuates recommended (ATR astigmatism below threshold)"
+                )
+        elif bik_axis_cos < -0.55:
+            # WTR astigmatism (axis near 90°): None if Barrett K < 0.3
+            if barrett_k_mag < 0.3:
+                return LRIPrediction(
+                    arcuate_type="None",
+                    arcuate_code=0,
+                    lri_length=None,
+                    lri_axis=None,
+                    num_arcuates=0,
+                    recommendation="No arcuates recommended (WTR astigmatism below threshold)"
+                )
+        else:
+            # Oblique astigmatism (axis near 45°/135°): None if Barrett K < 0.2
+            if barrett_k_mag < 0.2:
+                return LRIPrediction(
+                    arcuate_type="None",
+                    arcuate_code=0,
+                    lri_length=None,
+                    lri_axis=None,
+                    num_arcuates=0,
+                    recommendation="No arcuates recommended (oblique astigmatism below threshold)"
+                )
+        
         # Step 1: Classify arcuate type using Model 1
         arcuate_type, arcuate_code = self.predict_arcuate_type(features)
         
