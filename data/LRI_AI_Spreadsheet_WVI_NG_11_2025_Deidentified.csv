@@ -1,4 +1,4 @@
-﻿Identifier,Age,Laterality,Procedure,(M) Sphere,(M) Cylinder,(M) Axis,∆k Pentagram magnitude (D),∆k Pentagram axis (°),∆k IOL 700 magnitude (D),∆k IOL 700 axis (°),Post. astigmatism (IOL 700) axis (°),Post. astigmatism (IOL 700) magnitude (D),Barrett Integrated-K magnitude (D),Barrett Integrated-K axis,∆TK IOL 700 magnitude (D),∆TK IOL 700 axis (°),WTW (mm),Axial length (mm),LRI length 1,LRI axis 1,LRI length 2,LRI axis 2,Single/Paired
+﻿Identifier,Age,Laterality,Procedure,(M) Sphere,(M) Cylinder,(M) Axis,∆k Pentacam magnitude (D),∆k Pentacam axis (°),∆k IOL 700 magnitude (D),∆k IOL 700 axis (°),Post. astigmatism (IOL 700) axis (°),Post. astigmatism (IOL 700) magnitude (D),Barrett Integrated-K magnitude (D),Barrett Integrated-K axis,∆TK IOL 700 magnitude (D),∆TK IOL 700 axis (°),WTW (mm),Axial length (mm),LRI length 1,LRI axis 1,LRI length 2,LRI axis 2,None/Single/Paired
 Abigail Haddock,71,1,1,1.25,-0.5,74,0.3,21.7,0.57,7,90,0,0.42,12,0.65,7,12.4,22.97,31,5,0,0,1
 Abigail Haddock,71,2,1,1,-0.25,76,0.4,144.9,0.64,9,12,0.04,0.38,173,0.77,9,12.4,22.76,30,170,30,350,2
 Abigail Walsh,47,1,1,0.25,-0.75,151,1.4,79.9,1.76,84,0,0.42,1.6,82,1.59,82,12,24.15,40,80,40,260,2

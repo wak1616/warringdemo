@@ -9,3 +9,6 @@ dependencies:
   - scikit-learn
   - jupyter
   - ipykernel
+  - pip:
+    - catboost
+    - xgboost
