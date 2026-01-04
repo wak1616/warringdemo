@@ -2,7 +2,6 @@
   "model1": {
     "feature_columns": [
       "Age",
-      "Laterality",
       "Barrett Integrated-K magnitude (D)",
       "BIK_axis_cos",
       "BIK_axis_sin",

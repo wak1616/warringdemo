@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image: 
+      linear-gradient(rgba(26, 54, 93, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 54, 93, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@layer components {
+  .input-field {
+    @apply w-full px-3.5 py-2.5 border-2 border-slate-200 rounded-lg text-sm
+           transition-all duration-200 bg-white
+           hover:border-slate-300
+           focus:outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100;
+  }
+
+  .input-field::placeholder {
+    @apply text-slate-400 text-sm;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3.5 bg-gradient-to-r from-primary to-primary-light text-white
+           font-semibold rounded-xl shadow-lg transition-all duration-200
+           hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0
+           disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white border-2 border-primary text-primary
+           font-semibold rounded-xl transition-all duration-200
+           hover:bg-primary hover:text-white;
+  }
+
+  .mode-btn {
+    @apply flex-1 py-2.5 px-4 border-2 border-slate-200 rounded-lg
+           bg-white text-slate-500 text-sm font-medium transition-all duration-200
+           hover:border-primary-light hover:text-primary;
+  }
+
+  .mode-btn-active {
+    @apply border-primary bg-primary text-white;
+  }
+
+  .mode-btn-disabled {
+    @apply bg-slate-100 text-slate-400 border-slate-200 opacity-60
+           hover:border-slate-200 hover:text-slate-400;
+  }
+}
+
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0.5in;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: white !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  body::before {
+    display: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  main {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+
+  .max-w-4xl {
+    max-width: 100% !important;
+  }
+
+  /* Header compact */
+  header {
+    margin-bottom: 0.5rem !important;
+  }
+
+  header h1 {
+    font-size: 1.25rem !important;
+  }
+
+  header p {
+    font-size: 0.75rem !important;
+  }
+
+  /* Main card */
+  .bg-white.rounded-2xl {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+
+  /* Print patient info section */
+  .print-only.p-6 {
+    padding: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .print-only h2 {
+    font-size: 0.875rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .print-only table td {
+    padding: 0.25rem 0.5rem 0.25rem 0 !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Results section */
+  .p-6.bg-slate-100 {
+    padding: 0.75rem !important;
+    background: white !important;
+    page-break-inside: avoid;
+  }
+
+  /* Recommendation box */
+  .bg-gradient-to-br.from-slate-800 {
+    padding: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    border-radius: 0.5rem !important;
+    page-break-inside: avoid;
+  }
+
+  .bg-gradient-to-br.from-slate-800 h3 {
+    font-size: 0.65rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .bg-gradient-to-br.from-slate-800 p.text-lg {
+    font-size: 0.875rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .bg-gradient-to-br.from-slate-800 .grid {
+    padding-top: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .bg-gradient-to-br.from-slate-800 .grid span {
+    font-size: 0.6rem !important;
+  }
+
+  .bg-gradient-to-br.from-slate-800 .grid p {
+    font-size: 0.875rem !important;
+  }
+
+  /* Canvas container */
+  .bg-white.rounded-xl.p-4 {
+    padding: 0.5rem !important;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    page-break-inside: avoid;
+  }
+
+  /* Canvas sizing - critical for fitting on one page */
+  .max-w-md {
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Eye label */
+  .text-center.py-3.mt-4 {
+    padding: 0.25rem !important;
+    margin-top: 0.25rem !important;
+  }
+
+  .text-center.py-3.mt-4 span {
+    font-size: 0.75rem !important;
+  }
+
+  /* Legend */
+  .flex.justify-center.gap-6.mt-4 {
+    margin-top: 0.25rem !important;
+    gap: 1rem !important;
+  }
+
+  .flex.justify-center.gap-6.mt-4 span.text-sm {
+    font-size: 0.65rem !important;
+  }
+
+  .flex.justify-center.gap-6.mt-4 span.w-4 {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+  }
+}
+
+.print-only { display: none; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { @apply bg-slate-100; }
+::-webkit-scrollbar-thumb { @apply bg-slate-400 rounded; }
+::-webkit-scrollbar-thumb:hover { @apply bg-slate-500; }

@@ -149,7 +149,6 @@ class LRIPredictor:
         Args:
             patient_data: Dictionary with raw patient measurements:
                 - age: Patient age
-                - laterality: "OD" or "OS"
                 - manifest_cylinder: Manifest cylinder (negative value)
                 - manifest_axis: Manifest axis (degrees)
                 - barrett_k_magnitude: Barrett Integrated-K magnitude (D)
@@ -211,12 +210,8 @@ class LRIPredictor:
             bik_axis
         )
         
-        # Encode laterality (OD=0, OS=1)
-        laterality_code = 0 if patient_data['laterality'].upper() == 'OD' else 1
-        
         return {
             'Age': patient_data['age'],
-            'Laterality': laterality_code,
             'Barrett Integrated-K magnitude (D)': patient_data['barrett_k_magnitude'],
             'BIK_axis_cos': bik_axis_cos,
             'BIK_axis_sin': bik_axis_sin,
@@ -417,7 +412,6 @@ if __name__ == "__main__":
     # Example patient data
     example_patient = {
         'age': 68,
-        'laterality': 'OD',
         'manifest_cylinder': -1.50,
         'manifest_axis': 180,
         'barrett_k_magnitude': 1.25,
