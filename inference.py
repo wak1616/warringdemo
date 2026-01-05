@@ -75,7 +75,7 @@ class LRIPrediction:
     """Result of LRI prediction"""
     arcuate_type: str           # "None", "Single", or "Paired"
     arcuate_code: int           # 0, 1, or 2
-    lri_length: Optional[float] # None if arcuate_type is "None", otherwise predicted length
+    lri_length: Optional[int]   # None if arcuate_type is "None", otherwise predicted length (rounded to nearest whole number)
     lri_axis: Optional[int]     # Barrett Integrated-K axis (degrees) - the axis for the arcuate(s)
     num_arcuates: int           # 0, 1, or 2
     recommendation: str         # Human-readable recommendation
@@ -338,24 +338,26 @@ class LRIPredictor:
         
         elif arcuate_type == "Single":
             lri_length = self.predict_lri_length_single(features)
+            lri_length_rounded = int(round(lri_length))
             return LRIPrediction(
                 arcuate_type="Single",
                 arcuate_code=1,
-                lri_length=round(lri_length, 1),
+                lri_length=lri_length_rounded,
                 lri_axis=bik_axis,
                 num_arcuates=1,
-                recommendation=f"Single arcuate: {round(lri_length, 1)}° length at {bik_axis}° axis"
+                recommendation=f"Single arcuate: {lri_length_rounded}° length at {bik_axis}° axis"
             )
         
         else:  # Paired
             lri_length = self.predict_lri_length_paired(features)
+            lri_length_rounded = int(round(lri_length))
             return LRIPrediction(
                 arcuate_type="Paired",
                 arcuate_code=2,
-                lri_length=round(lri_length, 1),
+                lri_length=lri_length_rounded,
                 lri_axis=bik_axis,
                 num_arcuates=2,
-                recommendation=f"Paired arcuates: {round(lri_length, 1)}° length each at {bik_axis}° axis"
+                recommendation=f"Paired arcuates: {lri_length_rounded}° length each at {bik_axis}° axis"
             )
     
     def predict_single_only(self, patient_data: Dict[str, Any]) -> LRIPrediction:
@@ -366,14 +368,15 @@ class LRIPredictor:
         bik_axis = int(patient_data['barrett_k_axis'])
         features = self.preprocess_patient(patient_data)
         lri_length = self.predict_lri_length_single(features)
+        lri_length_rounded = int(round(lri_length))
         
         return LRIPrediction(
             arcuate_type="Single",
             arcuate_code=1,
-            lri_length=round(lri_length, 1),
+            lri_length=lri_length_rounded,
             lri_axis=bik_axis,
             num_arcuates=1,
-            recommendation=f"Single arcuate: {round(lri_length, 1)}° length at {bik_axis}° axis"
+            recommendation=f"Single arcuate: {lri_length_rounded}° length at {bik_axis}° axis"
         )
     
     def predict_paired_only(self, patient_data: Dict[str, Any]) -> LRIPrediction:
@@ -384,14 +387,15 @@ class LRIPredictor:
         bik_axis = int(patient_data['barrett_k_axis'])
         features = self.preprocess_patient(patient_data)
         lri_length = self.predict_lri_length_paired(features)
+        lri_length_rounded = int(round(lri_length))
         
         return LRIPrediction(
             arcuate_type="Paired",
             arcuate_code=2,
-            lri_length=round(lri_length, 1),
+            lri_length=lri_length_rounded,
             lri_axis=bik_axis,
             num_arcuates=2,
-            recommendation=f"Paired arcuates: {round(lri_length, 1)}° length each at {bik_axis}° axis"
+            recommendation=f"Paired arcuates: {lri_length_rounded}° length each at {bik_axis}° axis"
         )
 
 

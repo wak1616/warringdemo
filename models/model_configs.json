@@ -27,10 +27,7 @@
       "Barrett Integrated-K magnitude (D)",
       "BIK_axis_cos",
       "BIK_axis_sin",
-      "deltaK_IOL700_cyl_atBIKaxis",
       "deltaTK_IOL700_cyl_atBIKaxis",
-      "PostAstig_IOL700_cyl_atBIKaxis",
-      "Pentacam_cyl_atBIKaxis",
       "Axial length (mm)"
     ],
     "optimal_rounds": 180,
@@ -44,10 +41,7 @@
       "Age",
       "Barrett Integrated-K magnitude (D)",
       "BIK_axis_cos",
-      "deltaK_IOL700_cyl_atBIKaxis",
       "deltaTK_IOL700_cyl_atBIKaxis",
-      "PostAstig_IOL700_cyl_atBIKaxis",
-      "Pentacam_cyl_atBIKaxis",
       "Axial length (mm)"
     ],
     "optimal_rounds": 305,
